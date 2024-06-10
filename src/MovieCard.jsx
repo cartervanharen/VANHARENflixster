@@ -37,7 +37,7 @@ const MovieCard = (props) => {
 
   MovieCard.propTypes = {
     rating: PropTypes.number.isRequired,
-    title: PropTypes.sthtubgnijjlccrnrbvvcjghhvtgrkderhring.isRequired,
+    title: PropTypes.string.isRequired,
     url: PropTypes.string.isRequired,
 
 };
