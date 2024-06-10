@@ -2,7 +2,7 @@
 
 ## Unit 2 Assignment: Music Playlist Explorer
 
-Submitted by: **NAME**
+Submitted by: **CARTER VANHAREN**
 
 Estimated time spent: **#** hours spent in total
 
