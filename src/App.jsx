@@ -1,14 +1,22 @@
 //import { useState } from 'react'
 import './App.css'
-const apiKey = import.meta.env.VITE_API_KEY;
+//const apiKey = import.meta.env.VITE_API_KEY;
+import MovieList from './MovieList.jsx';
+
 
 const App = () => {
 
   return(
 
+    
+
   <div className="App">
-    <p>test</p>
-    {console.log(apiKey)}
+
+
+    <p>tesdt2</p>
+    <MovieList stuff="test"/>
+    
+
   </div>
   )
 

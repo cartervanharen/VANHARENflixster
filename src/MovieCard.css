@@ -1,0 +1,32 @@
+.MovieCardBox{
+    background-color: white;
+    border-radius: 5px;
+    width: 200px;
+    height: 350px;
+    margin:15px
+}
+
+.moviecardimage{
+    width: 160px;
+    height: 200px;
+    
+
+}
+
+.moviecardtitle{
+    padding: 5px;
+    justify-content: center;
+    font-size:10pt;
+    overflow: auto; 
+    white-space: normal; 
+
+
+}
+
+
+#movieboxcontainer{
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+
+}
