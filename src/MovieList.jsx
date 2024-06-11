@@ -6,17 +6,21 @@ import MovieCard from "./MovieCard.jsx";
 
 const MovieList = ({ searchquery }) => {
   const [movies, setMovies] = useState([]);
-  const [pagestoload, setPagestoload] = useState(1);
+  const [pagestoload, setPagestoload] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
-      let url = `https://api.themoviedb.org/3/${searchquery ? 'search/movie' : 'movie/now_playing'}?api_key=${apiKey}${searchquery ? `&query=${searchquery}` : ''}&page=${pagestoload}`;
-      console.log(`Fetching data from: ${url}`); 
+      let url = `https://api.themoviedb.org/3/${
+        searchquery ? "search/movie" : "movie/now_playing"
+      }?api_key=${apiKey}${
+        searchquery ? `&query=${searchquery}` : ""
+      }&page=${pagestoload}`;
+      console.log(`Fetching data from: ${url}`);
 
       try {
         const response = await fetch(url);
         const data = await response.json();
-        console.log('Data fetched:', data); 
+        console.log("Data fetched:", data);
 
         const newMovies = data.results.map((movie) => ({
           title: movie.title,
@@ -25,16 +29,18 @@ const MovieList = ({ searchquery }) => {
         }));
 
         setMovies(searchquery ? newMovies : [...movies, ...newMovies]);
+        console.log("addingmore");
       } catch (error) {
         console.error("Error:", error);
       }
     };
 
     fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pagestoload, searchquery]);
 
   useEffect(() => {
-    console.log('Search query changed:', searchquery); 
+    console.log("Search query changed:", searchquery);
     setPagestoload(1);
     setMovies([]);
   }, [searchquery]);
@@ -43,7 +49,7 @@ const MovieList = ({ searchquery }) => {
     setPagestoload((prevPage) => prevPage + 1);
   };
 
-  console.log('Rendering movies:', movies); 
+  console.log("Rendering movies:", movies);
 
   return (
     <>
@@ -59,7 +65,7 @@ const MovieList = ({ searchquery }) => {
             </div>
           ))}
         </div>
-        <button onClick={handleLoadMore}>Load More</button>
+        {!searchquery && <button onClick={handleLoadMore}>Load More</button>}
       </div>
     </>
   );

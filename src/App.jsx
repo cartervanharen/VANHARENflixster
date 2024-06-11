@@ -4,18 +4,19 @@ import MovieList from "./MovieList.jsx";
 
 const App = () => {
   const [tempSearchQuery, setTempSearchQuery] = useState("");
-  const [searchquery, setSearchquery] = useState(""); 
+  const [searchquery, setSearchquery] = useState("");
 
   const handleSearchChange = (event) => {
-    setTempSearchQuery(event.target.value); 
+    setTempSearchQuery(event.target.value);
   };
 
   const handleSearch = () => {
-    setSearchquery(tempSearchQuery); 
+    setSearchquery(tempSearchQuery);
   };
 
   const handleReset = () => {
-    window.location.reload()  };
+    window.location.reload();
+  };
 
   return (
     <div className="App">
