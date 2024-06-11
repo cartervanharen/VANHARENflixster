@@ -1,44 +1,40 @@
 import "./MovieList.css";
 import PropTypes from "prop-types";
 import { useState, useEffect } from "react";
-
-import MovieCard from "./MovieCard.jsx";
 const apiKey = import.meta.env.VITE_API_KEY;
 
-const MovieList = ({ stuff }) => {
+import MovieCard from "./MovieCard.jsx";
+
+const MovieList = ({ pagestoload }) => {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&page=4`
+          `https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&page=${pagestoload}`
         );
         const data = await response.json();
 
-        setMovies(
-          data.results.map((movie) => ({
+        setMovies(prevMovies => [
+          ...prevMovies,
+          ...data.results.map(movie => ({
             title: movie.title,
             posterImageUrl: `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
             rating: movie.vote_average,
           }))
-        );
-
-        console.log(movies)
+        ]);
       } catch (error) {
         console.error("Error:", error);
       }
     };
+
     fetchData();
-  }, []);
+  }, [pagestoload]);
 
   return (
     <>
       <div>
-        <p>Movielistbox</p>
-        <p>{stuff}</p>
-        <br></br>
-
         <div id="movieboxcontainer">
           {movies.map((movie) => (
             <div key={movie.title}>
@@ -56,7 +52,7 @@ const MovieList = ({ stuff }) => {
 };
 
 MovieList.propTypes = {
-  stuff: PropTypes.string.isRequired,
+  pagestoload: PropTypes.number.isRequired,
 };
 
 export default MovieList;

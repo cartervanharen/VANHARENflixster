@@ -1,27 +1,20 @@
-//import { useState } from 'react'
-import './App.css'
-//const apiKey = import.meta.env.VITE_API_KEY;
+import { useState } from 'react';
+import './App.css';
 import MovieList from './MovieList.jsx';
 
-
 const App = () => {
+  const [pagestoload, setPagestoload] = useState(1);
 
-  return(
+  const handleLoadMore = () => {
+    setPagestoload(pagestoload + 1);
+  };
 
-    
+  return (
+    <div className="App">
+      <MovieList pagestoload={pagestoload} />
+      <button onClick={handleLoadMore}>Load More</button>
+    </div>
+  );
+};
 
-  <div className="App">
-
-
-    <p>tesdt2</p>
-    <MovieList stuff="test"/>
-    
-
-  </div>
-  )
-
-
-  
-}
-
-export default App
+export default App;
