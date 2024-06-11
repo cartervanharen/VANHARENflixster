@@ -1,8 +1,8 @@
 import { useState } from "react";
 import "./App.css";
 import MovieList from "./MovieList.jsx";
-let searched = 0;
 const App = () => {
+
   const [tempSearchQuery, setTempSearchQuery] = useState("");
   const [searchquery, setSearchquery] = useState("");
 
@@ -11,6 +11,8 @@ const App = () => {
   };
 
   const handleSearch = () => {
+    var searched;
+
     setSearchquery(tempSearchQuery);
     if (tempSearchQuery=="") { 
 
@@ -19,8 +21,9 @@ const App = () => {
       searchbutton.textContent = "Search"; 
 
       window.location.reload()
+      
       searched = 1;
-
+      console.log(searched)
 
     } else {
       const searchbutton = document.getElementById("searchbutton");
