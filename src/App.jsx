@@ -11,37 +11,40 @@ const App = () => {
   };
 
   const handleSearch = () => {
-    var searched;
-
+    // var searched;
+    
     setSearchquery(tempSearchQuery);
+    
     if (tempSearchQuery=="") { 
 
-      const searchbutton = document.getElementById("searchbutton");
+      // const searchbutton = document.getElementById("searchbutton");
 
-      searchbutton.textContent = "Search"; 
+      // searchbutton.textContent = "Search"; 
+      
 
       window.location.reload()
       
-      searched = 1;
-      console.log(searched)
+      // searched = 1;
+      // console.log(searched)
 
     } else {
-      const searchbutton = document.getElementById("searchbutton");
-      console.log("inelseloop")
+      // const searchbutton = document.getElementById("searchbutton");
+      // console.log("inelseloop")
 
-      searchbutton.textContent = "Reset"; 
+      // searchbutton.textContent = "Reset"; 
 
-      if (searched === 1){
-        window.location.reload();
-        console.log("RESETTING")
-        searched = 0
+      // if (searched === 1){
+      //   window.location.reload();
+      //   console.log("RESETTING")
+      //   searched = 0
 
-      }
+      // }
     }
 
   };
 
   const handleReset = () => {
+    
     window.location.reload();
   };
 
@@ -58,6 +61,30 @@ const App = () => {
       <button onClick={handleReset}>View Featured Movies</button>
 
       <MovieList searchquery={searchquery} />
+
+
+
+
+      <div id="modal">
+
+        <div id="codegoeshere" className="modal-content">
+           
+
+
+
+
+        </div>
+
+
+
+        
+      </div>
+
+
+
+
+      
+
     </div>
   );
 };
