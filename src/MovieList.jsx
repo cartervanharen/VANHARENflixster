@@ -1,36 +1,49 @@
-import "./MovieList.css";
 import PropTypes from "prop-types";
 import { useState, useEffect } from "react";
 const apiKey = import.meta.env.VITE_API_KEY;
 
 import MovieCard from "./MovieCard.jsx";
 
-const MovieList = ({ pagestoload }) => {
+const MovieList = ({ searchquery }) => {
   const [movies, setMovies] = useState([]);
+  const [pagestoload, setPagestoload] = useState(1);
 
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        const response = await fetch(
-          `https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&page=${pagestoload}`
-        );
-        const data = await response.json();
+      let url = `https://api.themoviedb.org/3/${searchquery ? 'search/movie' : 'movie/now_playing'}?api_key=${apiKey}${searchquery ? `&query=${searchquery}` : ''}&page=${pagestoload}`;
+      console.log(`Fetching data from: ${url}`); 
 
-        setMovies(prevMovies => [
-          ...prevMovies,
-          ...data.results.map(movie => ({
-            title: movie.title,
-            posterImageUrl: `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
-            rating: movie.vote_average,
-          }))
-        ]);
+      try {
+        const response = await fetch(url);
+        const data = await response.json();
+        console.log('Data fetched:', data); 
+
+        const newMovies = data.results.map((movie) => ({
+          title: movie.title,
+          posterImageUrl: `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
+          rating: movie.vote_average,
+        }));
+
+        setMovies(searchquery ? newMovies : [...movies, ...newMovies]);
       } catch (error) {
         console.error("Error:", error);
       }
     };
 
     fetchData();
-  }, [pagestoload]);
+  }, [pagestoload, searchquery]);
+
+  useEffect(() => {
+    console.log('Search query changed:', searchquery); 
+    setPagestoload(1);
+    setMovies([]);
+  }, [searchquery]);
+
+  const handleLoadMore = () => {
+    setPagestoload((prevPage) => prevPage + 1);
+  };
+
+  console.log('Rendering movies:', movies); 
 
   return (
     <>
@@ -46,13 +59,14 @@ const MovieList = ({ pagestoload }) => {
             </div>
           ))}
         </div>
+        <button onClick={handleLoadMore}>Load More</button>
       </div>
     </>
   );
 };
 
 MovieList.propTypes = {
-  pagestoload: PropTypes.number.isRequired,
+  searchquery: PropTypes.string,
 };
 
 export default MovieList;
