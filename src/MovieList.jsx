@@ -1,21 +1,32 @@
 import PropTypes from "prop-types";
 import { useState, useEffect } from "react";
 const apiKey = import.meta.env.VITE_API_KEY;
-
+import "./App.jsx";
 import MovieCard from "./MovieCard.jsx";
 
-const MovieList = ({ searchquery }) => {
+
+
+
+
+
+const MovieList = ({ searchquery,sortoption}) => {
+    console.log(sortoption)
   const [movies, setMovies] = useState([]);
   // eslint-disable-next-line no-unused-vars
-  let [updatecounter, setUpdatecounter] = useState(0);
+  let [updatecounter, setUpdatecounter] = useState(0); //force updates
 
-  const [pagestoload, setPagestoload] = useState(0);
+  let [pagestoload, setPagestoload] = useState(0);
   // eslint-disable-next-line no-unused-vars
   const [sortCriteria, setSortCriteria] = useState("title");
 
   useEffect(() => {
     const fetchData = async () => {
-      let url = `https://api.themoviedb.org/3/${
+    
+        if (pagestoload == 0){ 
+            // eslint-disable-next-line react-hooks/exhaustive-deps
+            pagestoload = 1; //avoid erroneous errors where page gets set to 0
+        }
+        let url = `https://api.themoviedb.org/3/${
         searchquery ? "search/movie" : "movie/now_playing"
       }?api_key=${apiKey}${
         searchquery ? `&query=${searchquery}` : ""
@@ -33,9 +44,14 @@ const MovieList = ({ searchquery }) => {
           posterImageUrl: `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
           rating: movie.vote_average,
         }));
-        let newmoviesunsorted = searchquery ? newMovies : [...movies, ...newMovies]
+        let newmoviesunsorted = searchquery
+          ? newMovies
+          : [...movies, ...newMovies];
 
-        const uniqueMovies = [...newmoviesunsorted].filter((movie, index, self) => self.findIndex(m => m.title === movie.title) === index);
+        const uniqueMovies = [...newmoviesunsorted].filter(
+          (movie, index, self) =>
+            self.findIndex((m) => m.title === movie.title) === index
+        );
 
         setMovies(uniqueMovies);
       } catch (error) {
@@ -52,8 +68,12 @@ const MovieList = ({ searchquery }) => {
     //console.log("Search query changed:", searchquery);
     setPagestoload(1);
     setMovies([]);
-  }, [searchquery]);
+    sortMovies(sortoption)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchquery,sortoption]);
 
+
+  
   const handleLoadMore = () => {
     setPagestoload((prevPage) => prevPage + 1);
   };
@@ -69,16 +89,32 @@ const MovieList = ({ searchquery }) => {
     setSortCriteria(criteria);
   };
 
-  //console.log("Rendering movies:", movies);
+  //   const sortDialog = document.getElementById("sortdialog");
+  //   const contentToAdd = (
 
+  //   );
+  //   sortDialog.appendChild(contentToAdd);
+
+  // const sortDialog = document.getElementById("sortdialog");
+  // const contentToAdd = (
+
+  //     <select onChange={(e) => sortMovies(e.target.value)}>
+  //       <option value="title">Alphabetical</option>
+  //       <option value="releaseDate">Release Date</option>
+  //       <option value="rating">Rating</option>
+  //     </select>
+
+  // );
+  // sortDialog.appendChild(contentToAdd);
   return (
     <>
       <div>
-        <select onChange={(e) => sortMovies(e.target.value)}>
+        {/* <select onChange={() => sortMovies(sortoption)}>
           <option value="title">Alphabetical</option>
           <option value="releaseDate">Release Date</option>
           <option value="rating">Rating</option>
-        </select>
+        </select> */}
+
         <div id="movieboxcontainer">
           {movies.map((movie) => (
             <div key={movie.title}>
@@ -98,6 +134,7 @@ const MovieList = ({ searchquery }) => {
 
 MovieList.propTypes = {
   searchquery: PropTypes.string,
+  sortoption: PropTypes.string,
 };
 
 export default MovieList;

@@ -1,90 +1,70 @@
 import { useState } from "react";
 import "./App.css";
 import MovieList from "./MovieList.jsx";
-const App = () => {
 
+
+const App = () => {
   const [tempSearchQuery, setTempSearchQuery] = useState("");
   const [searchquery, setSearchquery] = useState("");
+
+  const [selectedOption, setSelectedOption] = useState("title");
+
+
 
   const handleSearchChange = (event) => {
     setTempSearchQuery(event.target.value);
   };
 
   const handleSearch = () => {
-    // var searched;
-    
     setSearchquery(tempSearchQuery);
-    
-    if (tempSearchQuery=="") { 
-
-      // const searchbutton = document.getElementById("searchbutton");
-
-      // searchbutton.textContent = "Search"; 
-      
-
-      window.location.reload()
-      
-      // searched = 1;
-      // console.log(searched)
-
-    } else {
-      // const searchbutton = document.getElementById("searchbutton");
-      // console.log("inelseloop")
-
-      // searchbutton.textContent = "Reset"; 
-
-      // if (searched === 1){
-      //   window.location.reload();
-      //   console.log("RESETTING")
-      //   searched = 0
-
-      // }
+    if (tempSearchQuery == "") {
+      handleReset();
     }
-
   };
-
   const handleReset = () => {
-    
     window.location.reload();
   };
 
   return (
     <div className="App">
-      <input
-        type="text"
-        value={tempSearchQuery}
-        onChange={handleSearchChange}
-        placeholder="Search for movies"
-      />
-      <button id="searchbutton" onClick={handleSearch}>Search</button>
-      <button onClick={handleReset}>Reset Search</button>
-      <button onClick={handleReset}>View Featured Movies</button>
-
-      <MovieList searchquery={searchquery} />
+      <div className="mainheader">
+        <h1>Flixter</h1>
 
 
 
 
-      <div id="modal">
+        <select onChange={(e) => {setSelectedOption(e.target.value)}}>
+          <option value="title">Alphabetical</option>
+          <option value="releaseDate">Release Date</option>
+          <option value="rating">Rating</option>
+        </select>
 
-        <div id="codegoeshere" className="modal-content">
-           
-
-
-
-
-        </div>
-
-
+        <input
+          type="text"
+          value={tempSearchQuery}
+          onChange={handleSearchChange}
+          placeholder="Search for movies"
+        />
+        <div id="sortdialog"></div>
 
         
+
+        <button id="searchbutton" onClick={handleSearch}>
+          Search
+        </button>
+        <button onClick={handleReset}>Reset Search</button>
+        <button onClick={handleReset}>View Featured Movies</button>
       </div>
 
+      <div className="overlay">
+        <div className="modal">
+          <div id="modelnovieinfo" className="modal-content">
+            <p>!!!!!modelnovieinfo!!!!!</p>
+          </div>
+        </div>
+      </div>
 
-
-
-      
-
+      <MovieList searchquery={searchquery} sortoption={selectedOption} />
     </div>
   );
 };
