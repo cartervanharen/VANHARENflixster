@@ -3,46 +3,37 @@ import { useState, useEffect } from "react";
 const apiKey = import.meta.env.VITE_API_KEY;
 import "./App.jsx";
 import MovieCard from "./MovieCard.jsx";
+import Modalpop from "./modal.jsx";
 
-
-
-
-
-
-const MovieList = ({ searchquery,sortoption}) => {
-    console.log(sortoption)
+const MovieList = ({ searchquery, sortoption }) => {
   const [movies, setMovies] = useState([]);
-  // eslint-disable-next-line no-unused-vars
-  let [updatecounter, setUpdatecounter] = useState(0); //force updates
-
+  const [updatecounter, setUpdatecounter] = useState(0); //force updates
   let [pagestoload, setPagestoload] = useState(0);
-  // eslint-disable-next-line no-unused-vars
   const [sortCriteria, setSortCriteria] = useState("title");
+  const [modalOpen, setModalOpen] = useState(0); // 0 for closed, 1 for open
+  const [selectedMovie, setSelectedMovie] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
-    
-        if (pagestoload == 0){ 
-            // eslint-disable-next-line react-hooks/exhaustive-deps
-            pagestoload = 1; //avoid erroneous errors where page gets set to 0
-        }
-        let url = `https://api.themoviedb.org/3/${
+      if (pagestoload === 0) {
+        pagestoload = 1; //avoid erroneous errors where page gets set to 0
+      }
+      let url = `https://api.themoviedb.org/3/${
         searchquery ? "search/movie" : "movie/now_playing"
       }?api_key=${apiKey}${
         searchquery ? `&query=${searchquery}` : ""
       }&page=${pagestoload}`;
-      //console.log(`Fetching data from: ${url}`);
 
       try {
         const response = await fetch(url);
         const data = await response.json();
-        //console.log("Data fetched:", data);
 
         const newMovies = data.results.map((movie) => ({
           title: movie.title,
           releaseDate: movie.release_date,
           posterImageUrl: `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
           rating: movie.vote_average,
+          overview: movie.overview,
         }));
         let newmoviesunsorted = searchquery
           ? newMovies
@@ -60,26 +51,20 @@ const MovieList = ({ searchquery,sortoption}) => {
     };
 
     fetchData();
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pagestoload, searchquery, updatecounter]);
 
   useEffect(() => {
-    //console.log("Search query changed:", searchquery);
     setPagestoload(1);
     setMovies([]);
-    sortMovies(sortoption)
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [searchquery,sortoption]);
+    sortMovies(sortoption);
+  }, [searchquery, sortoption]);
 
-
-  
   const handleLoadMore = () => {
     setPagestoload((prevPage) => prevPage + 1);
   };
 
   const sortMovies = (criteria) => {
-    setUpdatecounter++;
+    setUpdatecounter(updatecounter + 1);
     const sortedMovies = [...movies].sort((a, b) => {
       if (a[criteria] < b[criteria]) return -1;
       if (a[criteria] > b[criteria]) return 1;
@@ -89,35 +74,17 @@ const MovieList = ({ searchquery,sortoption}) => {
     setSortCriteria(criteria);
   };
 
-  //   const sortDialog = document.getElementById("sortdialog");
-  //   const contentToAdd = (
+  const openModal = (movie) => {
+    setSelectedMovie(movie);
+    setModalOpen(1);
+  };
 
-  //   );
-  //   sortDialog.appendChild(contentToAdd);
-
-  // const sortDialog = document.getElementById("sortdialog");
-  // const contentToAdd = (
-
-  //     <select onChange={(e) => sortMovies(e.target.value)}>
-  //       <option value="title">Alphabetical</option>
-  //       <option value="releaseDate">Release Date</option>
-  //       <option value="rating">Rating</option>
-  //     </select>
-
-  // );
-  // sortDialog.appendChild(contentToAdd);
   return (
     <>
       <div>
-        {/* <select onChange={() => sortMovies(sortoption)}>
-          <option value="title">Alphabetical</option>
-          <option value="releaseDate">Release Date</option>
-          <option value="rating">Rating</option>
-        </select> */}
-
         <div id="movieboxcontainer">
           {movies.map((movie) => (
-            <div key={movie.title}>
+            <div key={movie.title} onClick={() => openModal(movie)}>
               <MovieCard
                 title={movie.title}
                 rating={movie.rating}
@@ -127,6 +94,13 @@ const MovieList = ({ searchquery,sortoption}) => {
           ))}
         </div>
         {!searchquery && <button onClick={handleLoadMore}>Load More</button>}
+        {modalOpen === 1 && (
+          <Modalpop
+            openstatus={modalOpen}
+            setOpenStatus={setModalOpen}
+            movie={selectedMovie}
+          />
+        )}
       </div>
     </>
   );

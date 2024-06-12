@@ -1,6 +1,6 @@
 
 import PropTypes from 'prop-types';
-import './Modal.css'; 
+import './Infopopup.css'; 
 
 const Modal = ({ isOpen, onClose, movie }) => {
   if (!isOpen) return null;
