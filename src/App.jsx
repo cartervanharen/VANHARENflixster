@@ -2,14 +2,11 @@ import { useState } from "react";
 import "./App.css";
 import MovieList from "./MovieList.jsx";
 
-
 const App = () => {
   const [tempSearchQuery, setTempSearchQuery] = useState("");
   const [searchquery, setSearchquery] = useState("");
 
   const [selectedOption, setSelectedOption] = useState("title");
-
-
 
   const handleSearchChange = (event) => {
     setTempSearchQuery(event.target.value);
@@ -30,10 +27,11 @@ const App = () => {
       <div className="mainheader">
         <h1>Flixter</h1>
 
-
-
-
-        <select onChange={(e) => {setSelectedOption(e.target.value)}}>
+        <select
+          onChange={(e) => {
+            setSelectedOption(e.target.value);
+          }}
+        >
           <option value="title">Alphabetical</option>
           <option value="releaseDate">Release Date</option>
           <option value="rating">Rating</option>
@@ -46,8 +44,6 @@ const App = () => {
           placeholder="Search for movies"
         />
         <div id="sortdialog"></div>
-
-        
 
         <button id="searchbutton" onClick={handleSearch}>
           Search

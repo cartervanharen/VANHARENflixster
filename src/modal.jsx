@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types';
-import './modal.css';
+import PropTypes from "prop-types";
+import "./modal.css";
 
 const Modal = ({ openstatus, setOpenStatus, movie }) => {
   if (openstatus !== 1) return null;
@@ -8,9 +8,15 @@ const Modal = ({ openstatus, setOpenStatus, movie }) => {
     <div className="modal-overlay">
       <div className="modal-content">
         <h2>{movie.title}</h2>
-        <p><strong>Release Date:</strong> {movie.releaseDate}</p>
-        <p><strong>Rating:</strong> {movie.rating}</p>
-        <p><strong>Overview:</strong> {movie.overview}</p>
+        <p>
+          <strong>Release Date:</strong> {movie.releaseDate}
+        </p>
+        <p>
+          <strong>Rating:</strong> {movie.rating}
+        </p>
+        <p>
+          <strong>Overview:</strong> {movie.overview}
+        </p>
         <img src={movie.posterImageUrl} alt={movie.title} />
         <button onClick={() => setOpenStatus(0)}>Close</button>
       </div>

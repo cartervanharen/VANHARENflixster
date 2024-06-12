@@ -29,7 +29,6 @@
   }
 }
 
-
 .overlay {
   display: none;
   position: fixed;
@@ -58,33 +57,21 @@
 
 .modal-content {
   justify-content: center;
-  color:black;
+  color: black;
   max-width: 80%;
   margin: 10px;
   text-align: left;
 }
 
-
-.mainheader{
-  color:#052651;
+.mainheader {
+  color: #052651;
   width: 100%;
   font-family: fantasy;
   height: 300px;
   background-color: #ee6934;
-  
 }
 
-
-h1{
+h1 {
   font-size: 30pt;
   padding: 0px;
 }
-/* color palete
-Teal: #008080
-Mustard Yellow: #FFDB58
-Coral Pink: #FF7F50
-Mint Green: #98FF98
-Sky Blue: #87CEEB
-Cherry Red: #F00
-
-*/

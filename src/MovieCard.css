@@ -1,33 +1,27 @@
-.MovieCardBox{
-    background-color: #196d8f;
-    border-radius: 5px;
-    color: black;
-    width: 200px;
-    height: 350px;
-    margin:15px
+.MovieCardBox {
+  background-color: #196d8f;
+  border-radius: 5px;
+  color: black;
+  width: 200px;
+  height: 350px;
+  margin: 15px;
 }
 
-.moviecardimage{
-    width: 160px;
-    height: 200px;
-    
-
+.moviecardimage {
+  width: 160px;
+  height: 200px;
 }
 
-.moviecardtitle{
-    padding: 5px;
-    justify-content: center;
-    font-size:10pt;
-    overflow: auto; 
-    white-space: normal; 
-
-
+.moviecardtitle {
+  padding: 5px;
+  justify-content: center;
+  font-size: 10pt;
+  overflow: auto;
+  white-space: normal;
 }
 
-
-#movieboxcontainer{
-    justify-content: center;
-    display: flex;
-    flex-wrap: wrap;
-
+#movieboxcontainer {
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
 }

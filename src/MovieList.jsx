@@ -9,6 +9,7 @@ const MovieList = ({ searchquery, sortoption }) => {
   const [movies, setMovies] = useState([]);
   const [updatecounter, setUpdatecounter] = useState(0); //force updates
   let [pagestoload, setPagestoload] = useState(0);
+  // eslint-disable-next-line no-unused-vars
   const [sortCriteria, setSortCriteria] = useState("title");
   const [modalOpen, setModalOpen] = useState(0); // 0 for closed, 1 for open
   const [selectedMovie, setSelectedMovie] = useState(null);
@@ -16,6 +17,7 @@ const MovieList = ({ searchquery, sortoption }) => {
   useEffect(() => {
     const fetchData = async () => {
       if (pagestoload === 0) {
+        // eslint-disable-next-line react-hooks/exhaustive-deps
         pagestoload = 1; //avoid erroneous errors where page gets set to 0
       }
       let url = `https://api.themoviedb.org/3/${
@@ -57,6 +59,7 @@ const MovieList = ({ searchquery, sortoption }) => {
     setPagestoload(1);
     setMovies([]);
     sortMovies(sortoption);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchquery, sortoption]);
 
   const handleLoadMore = () => {
