@@ -24,7 +24,7 @@ const MovieList = ({ searchquery, sortoption }) => {
         searchquery ? "search/movie" : "movie/now_playing"
       }?api_key=${apiKey}${
         searchquery ? `&query=${searchquery}` : ""
-      }&page=${pagestoload}`;
+      }&page=${pagestoload}&append_to_response=videos`;
 
       try {
         const response = await fetch(url);
@@ -36,6 +36,9 @@ const MovieList = ({ searchquery, sortoption }) => {
           posterImageUrl: `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
           rating: movie.vote_average,
           overview: movie.overview,
+          id: movie.id,
+
+
         }));
         let newmoviesunsorted = searchquery
           ? newMovies

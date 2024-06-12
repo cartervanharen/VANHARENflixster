@@ -24,8 +24,8 @@ Deployed Application (optional): [Flixster Deployed Site](ADD_LINK_HERE)
   - [ ] Website implements accessibility features (semantic HTML, color contrast, font sizing, alt text for images).
 - [X] **Responsive Design**
   - [X] Website implements responsive web design.
-- [ ] **Movie Details**
-  - [ ] Users can view more details about a movie in a popup, such as runtime in minutes, backdrop poster, release date, genres, and/or an overview.
+- [X] **Movie Details**
+  - [X] Users can view more details about a movie in a popup, such as runtime in minutes, backdrop poster, release date, genres, and/or an overview.
 - [X] **Sorting Options**
   - [X] Users can click on a filter by drop down to sort product by type (alphabetic, release date, rating).
 - [ ] **Layout**
@@ -33,8 +33,8 @@ Deployed Application (optional): [Flixster Deployed Site](ADD_LINK_HERE)
 
 #### STRETCH FEATURES
 
-- [ ] **Deployment**
-  - [ ] Website is deployed via Render.
+- [X] **Deployment**
+  - [X] Website is deployed via Render.
 - [ ] **Embedded Movie Trailers**
   - [ ] Within the popup displaying a movie's details, users can play the movie trailer.
 - [ ] **Watched Checkbox**
