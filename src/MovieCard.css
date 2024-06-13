@@ -1,9 +1,10 @@
 .MovieCardBox {
-  border-radius: 5px;
-  border-width: 4px;
+  border-radius:30px;
+  border-width: 2px;
   border-style: solid;
   border-color: black;
   color: black;
+  background-color: gray;
   width: 200px;
   height: 360px;
   margin: 15px;
