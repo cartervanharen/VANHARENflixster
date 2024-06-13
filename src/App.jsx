@@ -25,11 +25,10 @@ const App = () => {
   return (
     <div className="App">
       <div className="mainheader">
-        <p className="maintitle">  Flixter</p>
+        <p className="maintitle"> Flixter</p>
 
-        
-
-        <input className="searchbar"
+        <input
+          className="searchbar"
           type="text"
           value={tempSearchQuery}
           onChange={handleSearchChange}
@@ -37,41 +36,33 @@ const App = () => {
         />
         <div id="sortdialog"></div>
 
-        <button   className="generalButtonstyle" id="searchbutton" onClick={handleSearch}>
+        <button
+          className="generalButtonstyle"
+          id="searchbutton"
+          onClick={handleSearch}
+        >
           Search
         </button>
-        <button className="generalButtonstyle" onClick={handleReset}>Reset</button>
-
-
+        <button className="generalButtonstyle" onClick={handleReset}>
+          Reset
+        </button>
 
         <div className="sortbar">
-
-        <select 
-          onChange={(e) => {
-            setSelectedOption(e.target.value);
-          }}
-        >
-          
-          <option value="title">Alphabetical</option>
-          <option value="releaseDate">Release Date</option>
-          <option value="rating">Rating</option>
-        </select>
-
+          <select
+            onChange={(e) => {
+              setSelectedOption(e.target.value);
+            }}
+          >
+            <option value="title">Alphabetical</option>
+            <option value="releaseDate">Release Date</option>
+            <option value="rating">Rating</option>
+          </select>
         </div>
-
-
       </div>
 
       <div className="movielistdiv">
-        
-      <MovieList searchquery={searchquery} sortoption={selectedOption} />
-      </div>    
-
-
-
-
-
-      
+        <MovieList searchquery={searchquery} sortoption={selectedOption} />
+      </div>
     </div>
   );
 };

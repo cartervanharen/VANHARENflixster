@@ -37,8 +37,6 @@ const MovieList = ({ searchquery, sortoption }) => {
           rating: movie.vote_average,
           overview: movie.overview,
           id: movie.id,
-
-
         }));
         let newmoviesunsorted = searchquery
           ? newMovies

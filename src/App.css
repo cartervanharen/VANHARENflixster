@@ -11,7 +11,6 @@
   justify-content: space-evenly;
   color: white;
   opacity: 88%;
-
 }
 
 @media (max-width: 600px) {
@@ -22,7 +21,6 @@
   .search-bar {
     flex-direction: column;
     gap: 10px;
-
   }
 
   .search-bar form {
@@ -71,64 +69,50 @@
   display: flex;
   flex-direction: row;
   position: fixed;
-  
-  background-color: black;
 
+  background-color: black;
 }
 
 h1 {
   font-size: 14pt;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
   padding-left: 20px;
-  
-  padding-right: 20px;
-  /* margin-top: -9px; */
 
+  padding-right: 20px;
 }
 
 .sortbar {
-  width: 100px; /* set the width of the selector */
-  margin-left: 20px; /* add some space between the selector and the search bar */
-    border-radius: 30px;
-    margin: 5px;
-
-
+  width: 100px;
+  margin-left: 20px;
+  border-radius: 30px;
+  margin: 5px;
 }
 
 .sortbar select {
-  background-color: black; /* set the background color of the selector */
-  border: none; /* remove the default border */
-  border-radius: 5px; /* add some rounded corners */
+  background-color: black;
+  border: none;
+  border-radius: 5px;
   height: 30px;
-  font-size: 14px; /* set the font size of the options */
-  color: white; /* set the color of the options */
+  font-size: 14px;
+  color: white;
   border-radius: 30px;
-
 }
 
 .sortbar select:focus {
-  outline: none; /* remove the default outline when focused */
+  outline: none;
   border-radius: 30px;
-
 }
 
 .sortbar select::-ms-expand {
-  display: none; /* remove the default expand icon in Edge */
-    border-radius: 30px;
-
+  display: none;
+  border-radius: 30px;
 }
 
-.movielistdiv{
-
-
-padding-top: 60px;
+.movielistdiv {
+  padding-top: 60px;
 }
 
-
-
-
-
-.generalButtonstyle{
+.generalButtonstyle {
   border-radius: 10px;
 
   padding-left: 20px;
@@ -138,29 +122,21 @@ padding-top: 60px;
   margin-right: 20px;
 
   padding-right: 20px;
-
 }
 
-
-
-.searchbar{
-
+.searchbar {
   border-radius: 10px;
   margin: 5px;
-
 
   padding-left: 20px;
   margin-left: 20px;
   margin-right: 20px;
-  
-  padding-right: 20px;
 
+  padding-right: 20px;
 }
 
-
-.maintitle{
-
-  font-family:monospace;
+.maintitle {
+  font-family: monospace;
   color: white;
   font-size: 19pt;
   margin: 5px;

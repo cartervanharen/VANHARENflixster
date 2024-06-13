@@ -19,12 +19,13 @@ const Modal = ({ openstatus, setOpenStatus, movie }) => {
 
       const genreList = data.genres.map((genre) => genre.name);
 
-       // eslint-disable-next-line react-hooks/exhaustive-deps
-       firstTrailerId = data.videos.results.find((video) => video.type === "Trailer" )?.key;
-
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+      firstTrailerId = data.videos.results.find(
+        (video) => video.type === "Trailer"
+      )?.key;
 
       console.log(firstTrailerId);
-      setFirstTrailerId(firstTrailerId)
+      setFirstTrailerId(firstTrailerId);
       setGenreNames(genreList);
     };
 
@@ -50,47 +51,34 @@ const Modal = ({ openstatus, setOpenStatus, movie }) => {
           {genreNames ? genreNames.join(", ") : "Unknown"}
         </p>
 
-
-
-
         <div className="flexboxforvisuals">
-        <img className="imgposter" src={movie.posterImageUrl} alt={movie.title} />
+          <img
+            className="imgposter"
+            src={movie.posterImageUrl}
+            alt={movie.title}
+          />
 
-
-        <div>
-
-
-
-        <iframe
-        className="videostyle"
-        width="566"
-        height="300"
-        src={"https://www.youtube.com/embed/" + firstTrailerId}
-        title="YouTube video player"
-        frameBorder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerPolicy="strict-origin-when-cross-origin"
-        allowfullscreen
-      ></iframe>
-
-
-
+          <div>
+            <iframe
+              className="videostyle"
+              width="566"
+              height="300"
+              src={"https://www.youtube.com/embed/" + firstTrailerId}
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
         </div>
 
-
-
-        </div>
-
-
-
-        <button className="closebutton" onClick={() => setOpenStatus(0)}>Close</button>
+        <button className="closebutton" onClick={() => setOpenStatus(0)}>
+          Close
+        </button>
 
         <br></br>
-
-        
       </div>
-
-
     </div>
   );
 };

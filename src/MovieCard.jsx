@@ -8,12 +8,10 @@ const MovieCard = (props) => {
         <p className="moviecardtitle">{props.title}</p>
 
         <div className="lowermoviecardcontent">
+          <img className="moviecardimage" src={props.url} />
 
-        <img className="moviecardimage" src={props.url} />
-
-        <p>Rating: {props.rating}</p>
+          <p>Rating: {props.rating}</p>
         </div>
-
       </div>
     </>
   );
