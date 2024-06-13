@@ -1,7 +1,10 @@
 body {
-  background-color: #f3daab;
+  background-color: white;
   margin: 0;
   font-family: Arial, sans-serif;
+  width: 100%;
+  height: 100%;
+
 }
 
 button {

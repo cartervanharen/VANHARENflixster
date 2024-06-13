@@ -1,21 +1,24 @@
 .MovieCardBox {
-  background-color: #196d8f;
   border-radius: 5px;
+  border-width: 4px;
+  border-style: solid;
+  border-color: black;
   color: black;
   width: 200px;
-  height: 350px;
+  height: 360px;
   margin: 15px;
 }
 
 .moviecardimage {
   width: 160px;
+  border-radius: 13px;
   height: 200px;
 }
 
 .moviecardtitle {
-  padding: 5px;
+  padding: 4px;
   justify-content: center;
-  font-size: 10pt;
+  font-size: 15pt;
   overflow: auto;
   white-space: normal;
 }
@@ -25,3 +28,5 @@
   display: flex;
   flex-wrap: wrap;
 }
+
+

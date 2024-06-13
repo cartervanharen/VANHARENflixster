@@ -27,17 +27,9 @@ const App = () => {
       <div className="mainheader">
         <h1>Flixter</h1>
 
-        <select
-          onChange={(e) => {
-            setSelectedOption(e.target.value);
-          }}
-        >
-          <option value="title">Alphabetical</option>
-          <option value="releaseDate">Release Date</option>
-          <option value="rating">Rating</option>
-        </select>
+        
 
-        <input
+        <input className="searchbar"
           type="text"
           value={tempSearchQuery}
           onChange={handleSearchChange}
@@ -48,19 +40,38 @@ const App = () => {
         <button id="searchbutton" onClick={handleSearch}>
           Search
         </button>
-        <button onClick={handleReset}>Reset Search</button>
-        <button onClick={handleReset}>View Featured Movies</button>
-      </div>
+        <button onClick={handleReset}>Reset</button>
 
-      <div className="overlay">
-        <div className="modal">
-          <div id="modelnovieinfo" className="modal-content">
-            <p>!!!!!modelnovieinfo!!!!!</p>
-          </div>
+
+
+        <div className="sortbar">
+
+        <select 
+          onChange={(e) => {
+            setSelectedOption(e.target.value);
+          }}
+        >
+          
+          <option value="title">Alphabetical</option>
+          <option value="releaseDate">Release Date</option>
+          <option value="rating">Rating</option>
+        </select>
+
         </div>
+
+
       </div>
 
+      <div className="movielistdiv">
+        
       <MovieList searchquery={searchquery} sortoption={selectedOption} />
+      </div>    
+
+
+
+
+
+      
     </div>
   );
 };

@@ -11,7 +11,7 @@
   justify-content: space-evenly;
   color: white;
   opacity: 88%;
-  padding: 20px;
+
 }
 
 @media (max-width: 600px) {
@@ -67,11 +67,41 @@
   color: #052651;
   width: 100%;
   font-family: fantasy;
-  height: 300px;
-  background-color: #ee6934;
+  height: 25px;
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  
+  background-color: red;
+
 }
 
 h1 {
-  font-size: 30pt;
-  padding: 0px;
+  font-size: 10pt;
+
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-top: -9px;
+
+}
+
+
+.sortbar{
+  width: 100p;
+  margin-top: -13px;
+
+
+
+;}
+
+.movielistdiv{
+
+
+padding-top: 60px;
+}
+
+
+.searchbar{
+
+  width: 100px;
 }

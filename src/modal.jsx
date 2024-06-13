@@ -19,6 +19,7 @@ const Modal = ({ openstatus, setOpenStatus, movie }) => {
 
       const genreList = data.genres.map((genre) => genre.name);
 
+       // eslint-disable-next-line react-hooks/exhaustive-deps
        firstTrailerId = data.videos.results.find((video) => video.type === "Trailer" )?.key;
 
 
@@ -32,9 +33,9 @@ const Modal = ({ openstatus, setOpenStatus, movie }) => {
 
   if (openstatus !== 1) return null;
   return (
-    <div className="modal-overlay">
+    <div className="modal-overlay" onClick={() => setOpenStatus(0)}>
       <div className="modal-content">
-        <h2>{movie.title}</h2>
+        <p className="movietitletext">{movie.title}</p>
         <p>
           <strong>Release Date:</strong> {movie.releaseDate}
         </p>
@@ -49,7 +50,11 @@ const Modal = ({ openstatus, setOpenStatus, movie }) => {
           {genreNames ? genreNames.join(", ") : "Unknown"}
         </p>
 
-        <img src={movie.posterImageUrl} alt={movie.title} />
+
+
+
+        <div className="flexboxforvisuals">
+        <img className="imgposter" src={movie.posterImageUrl} alt={movie.title} />
 
 
         <div>
@@ -57,7 +62,8 @@ const Modal = ({ openstatus, setOpenStatus, movie }) => {
 
 
         <iframe
-        width="400"
+        className="videostyle"
+        width="566"
         height="300"
         src={"https://www.youtube.com/embed/" + firstTrailerId}
         title="YouTube video player"
@@ -73,9 +79,13 @@ const Modal = ({ openstatus, setOpenStatus, movie }) => {
 
 
 
-        <button onClick={() => setOpenStatus(0)}>Close</button>
+        </div>
 
 
+
+        <button className="closebutton" onClick={() => setOpenStatus(0)}>Close</button>
+
+        <br></br>
 
         
       </div>

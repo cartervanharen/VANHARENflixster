@@ -7,9 +7,13 @@ const MovieCard = (props) => {
       <div className="MovieCardBox">
         <p className="moviecardtitle">{props.title}</p>
 
+        <div className="lowermoviecardcontent">
+
         <img className="moviecardimage" src={props.url} />
 
         <p>Rating: {props.rating}</p>
+        </div>
+
       </div>
     </>
   );
