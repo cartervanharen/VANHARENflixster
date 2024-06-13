@@ -66,8 +66,7 @@
 .mainheader {
   color: #052651;
   width: 100%;
-  font-family: fantasy;
-  height: 25px;
+  height: 30px;
   display: flex;
   flex-direction: row;
   position: fixed;
@@ -77,9 +76,10 @@
 }
 
 h1 {
-  font-size: 10pt;
-
+  font-size: 14pt;
+  font-family: 'Times New Roman', Times, serif;
   padding-left: 20px;
+  
   padding-right: 20px;
   /* margin-top: -9px; */
 
@@ -89,6 +89,7 @@ h1 {
 .sortbar{
   width: 100p;
   /* margin-top: -13px; */
+  width: 100px;
 
 
 
@@ -102,6 +103,5 @@ padding-top: 60px;
 
 
 .searchbar{
-
-  width: 100px;
+  height: 100%;
 }
