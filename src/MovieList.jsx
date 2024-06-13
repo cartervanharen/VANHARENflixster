@@ -74,6 +74,7 @@ const MovieList = ({ searchquery, sortoption }) => {
       if (a[criteria] > b[criteria]) return 1;
       return 0;
     });
+    
     setMovies(sortedMovies);
     setSortCriteria(criteria);
   };
