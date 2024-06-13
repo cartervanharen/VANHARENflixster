@@ -25,7 +25,7 @@ const App = () => {
   return (
     <div className="App">
       <div className="mainheader">
-        <h1>Flixter</h1>
+        <p className="maintitle">  Flixter</p>
 
         
 
@@ -37,10 +37,10 @@ const App = () => {
         />
         <div id="sortdialog"></div>
 
-        <button id="searchbutton" onClick={handleSearch}>
+        <button   className="generalButtonstyle" id="searchbutton" onClick={handleSearch}>
           Search
         </button>
-        <button onClick={handleReset}>Reset</button>
+        <button className="generalButtonstyle" onClick={handleReset}>Reset</button>
 
 
 
