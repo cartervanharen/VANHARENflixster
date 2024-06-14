@@ -3,7 +3,12 @@ import { useState, useEffect } from "react";
 const apiKey = import.meta.env.VITE_API_KEY;
 import "./App.jsx";
 import MovieCard from "./MovieCard.jsx";
+
+import "./MovieList.css";
+
 import Modalpop from "./modal.jsx";
+import Sidebar from "./SideBar"; // Adjust the path as necessary
+// In your component's return statement
 
 const MovieList = ({ searchquery, sortoption }) => {
   const [movies, setMovies] = useState([]);
@@ -13,7 +18,16 @@ const MovieList = ({ searchquery, sortoption }) => {
   const [sortCriteria, setSortCriteria] = useState("title");
   const [modalOpen, setModalOpen] = useState(0); // 0 for closed, 1 for open
   const [selectedMovie, setSelectedMovie] = useState(null);
+  const [likedMovies, setLikedMovies] = useState([]);
+  const [watchedMovies, setWatchedMovies] = useState([]);
 
+  const handleLike = (movie) => {
+    setLikedMovies((prev) => [...prev, movie]);
+  };
+
+  const handleWatched = (movie) => {
+    setWatchedMovies((prev) => [...prev, movie]);
+  };
   useEffect(() => {
     const fetchData = async () => {
       if (pagestoload === 0) {
@@ -74,7 +88,7 @@ const MovieList = ({ searchquery, sortoption }) => {
       if (a[criteria] > b[criteria]) return 1;
       return 0;
     });
-    
+
     setMovies(sortedMovies);
     setSortCriteria(criteria);
   };
@@ -87,17 +101,37 @@ const MovieList = ({ searchquery, sortoption }) => {
   return (
     <>
       <div>
-        <div id="movieboxcontainer">
-          {movies.map((movie) => (
-            <div key={movie.title} onClick={() => openModal(movie)}>
-              <MovieCard
-                title={movie.title}
-                rating={movie.rating}
-                url={movie.posterImageUrl}
-              />
-            </div>
-          ))}
+
+
+        <div className="fullpageflex">
+        <div className="app-container">
+          <div id="movieboxcontainer">
+            {movies.map((movie) => (
+              <div key={movie.title} onClick={() => openModal(movie)}>
+                <MovieCard
+                  title={movie.title}
+                  rating={movie.rating}
+                  url={movie.posterImageUrl}
+                  onLike={() => handleLike(movie)}
+                  onWatched={() => handleWatched(movie)}
+                />
+              </div>
+            ))}
+          </div>
         </div>
+
+
+
+        <div className="app-container">
+          <div className="movie-list">{/* Your movie list here */}</div>
+          <Sidebar likedMovies={likedMovies} watchedMovies={watchedMovies} />
+        </div>
+
+
+
+        </div>
+
+
         {!searchquery && <button onClick={handleLoadMore}>Load More</button>}
         {modalOpen === 1 && (
           <Modalpop
