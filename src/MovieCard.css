@@ -4,7 +4,7 @@
   border-style: solid;
   border-color: black;
   color: black;
-  background-color: gray;
+  background-color: white;
   width: 200px;
   height: 360px;
   margin: 15px;
@@ -25,6 +25,8 @@
 }
 
 #movieboxcontainer {
+  min-width: 800px;
+
   justify-content: center;
   display: flex;
   flex-wrap: wrap;

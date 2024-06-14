@@ -13,11 +13,12 @@
 
 .modal-content {
   background: white;
+  min-width: 800px;
 
   padding: 20px;
   border-radius: 18px;
-  width: 800px;
-  height: 650;
+  width: 800px !important;
+  height: 650px;
 
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -52,4 +53,13 @@
 }
 p {
   font-size: 10pt;
+}
+
+
+
+
+.centeredcontent{
+
+  justify-content: center;
+  display: flex;
 }
