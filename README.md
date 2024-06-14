@@ -46,7 +46,7 @@ Deployed Application (optional): [Flixster Deployed Site](https://vanharenflixst
 ### Walkthrough Video
 
 
-`ADD_EMBEDDED_CODE_HERE`
+`https://www.loom.com/share/b4ed5d2bff5045a48091ab48473e7842?sid=ceff5845-fb7d-4393-9197-68c5beb3ebd7`
 
 ### Reflection
 
