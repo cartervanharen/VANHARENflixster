@@ -60,8 +60,7 @@ I would just tweak the design a bit. I think I could have made it look better.
 
 * Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
 
-Add your response here
-
+I presented last week, but talking to my group we all had some issues getting the modal to work in the first time.
 ### Open-source libraries used
 
 N/A
