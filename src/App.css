@@ -7,7 +7,7 @@
   background-color: #282c34;
   display: flex;
   flex-direction: row;
-  
+
   align-items: center;
   justify-content: space-evenly;
   color: white;
@@ -112,9 +112,7 @@ h1 {
 .movielistdiv {
   padding-top: 60px;
 
-
   min-width: 800px;
-
 }
 
 .generalButtonstyle {
@@ -148,8 +146,6 @@ h1 {
   margin-left: 10px;
 }
 
-
-
 .generalButtonstyle {
   border-radius: 10px;
 
@@ -160,4 +156,11 @@ h1 {
   margin-right: 20px;
 
   padding-right: 20px;
+}
+
+.footer {
+  color: white;
+  font-size: 20pt;
+  background-color: black;
+  padding: 5px;
 }

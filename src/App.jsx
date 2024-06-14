@@ -63,6 +63,8 @@ const App = () => {
       <div className="movielistdiv">
         <MovieList searchquery={searchquery} sortoption={selectedOption} />
       </div>
+
+      <div className="footer">CARTER VANHAREN</div>
     </div>
   );
 };
