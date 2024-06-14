@@ -73,17 +73,11 @@ const Modal = ({ openstatus, setOpenStatus, movie }) => {
           </div>
         </div>
 
-
         <div className="centeredcontent">
-
-        <button className="closebutton" onClick={() => setOpenStatus(0)}>
-          Close
-        </button>
-        
+          <button className="closebutton" onClick={() => setOpenStatus(0)}>
+            Close
+          </button>
         </div>
-
-
-
       </div>
     </div>
   );

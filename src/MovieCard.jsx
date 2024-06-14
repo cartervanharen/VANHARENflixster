@@ -3,12 +3,12 @@ import PropTypes from "prop-types";
 
 const MovieCard = (props) => {
   const handleLikeClick = (event) => {
-    event.stopPropagation(); // Prevents the event from bubbling up to parent elements
+    event.stopPropagation();
     props.onLike();
   };
 
   const handleWatchedClick = (event) => {
-    event.stopPropagation(); // Prevents the event from bubbling up to parent elements
+    event.stopPropagation();
     props.onWatched();
   };
 
@@ -16,10 +16,19 @@ const MovieCard = (props) => {
     <div className="MovieCardBox">
       <p className="moviecardtitle">{props.title}</p>
       <div className="lowermoviecardcontent">
-        <img className="moviecardimage" src={props.url} alt={`Poster of ${props.title}`} />
+        <img
+          className="moviecardimage"
+          src={props.url}
+          alt={`Poster of ${props.title}`}
+        />
         <p>Rating: {props.rating}</p>
-        <button onClick={handleLikeClick}>Like</button>
-        <button onClick={handleWatchedClick}>Already Watched</button>
+
+        <button className="generalButtonstyle" onClick={handleLikeClick}>
+          Like
+        </button>
+        <button className="generalButtonstyle" onClick={handleWatchedClick}>
+          Watched{" "}
+        </button>
       </div>
     </div>
   );

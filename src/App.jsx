@@ -63,11 +63,6 @@ const App = () => {
       <div className="movielistdiv">
         <MovieList searchquery={searchquery} sortoption={selectedOption} />
       </div>
-
-
-
-
-
     </div>
   );
 };

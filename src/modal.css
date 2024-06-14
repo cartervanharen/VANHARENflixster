@@ -1,6 +1,5 @@
 .modal-overlay {
   position: fixed;
-  /* overflow-y: scroll; */
   top: 0;
   left: 0;
   width: 100%;
@@ -55,11 +54,7 @@ p {
   font-size: 10pt;
 }
 
-
-
-
-.centeredcontent{
-
+.centeredcontent {
   justify-content: center;
   display: flex;
 }

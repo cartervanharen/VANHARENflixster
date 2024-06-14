@@ -101,38 +101,34 @@ const MovieList = ({ searchquery, sortoption }) => {
   return (
     <>
       <div>
-
-
         <div className="fullpageflex">
-        <div className="app-container">
-          <div id="movieboxcontainer">
-            {movies.map((movie) => (
-              <div key={movie.title} onClick={() => openModal(movie)}>
-                <MovieCard
-                  title={movie.title}
-                  rating={movie.rating}
-                  url={movie.posterImageUrl}
-                  onLike={() => handleLike(movie)}
-                  onWatched={() => handleWatched(movie)}
-                />
-              </div>
-            ))}
+          <div className="app-container">
+            <div id="movieboxcontainer">
+              {movies.map((movie) => (
+                <div key={movie.title} onClick={() => openModal(movie)}>
+                  <MovieCard
+                    title={movie.title}
+                    rating={movie.rating}
+                    url={movie.posterImageUrl}
+                    onLike={() => handleLike(movie)}
+                    onWatched={() => handleWatched(movie)}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="app-container">
+            <div className="movie-list">{/* Your movie list here */}</div>
+            <Sidebar likedMovies={likedMovies} watchedMovies={watchedMovies} />
           </div>
         </div>
 
-
-
-        <div className="app-container">
-          <div className="movie-list">{/* Your movie list here */}</div>
-          <Sidebar likedMovies={likedMovies} watchedMovies={watchedMovies} />
-        </div>
-
-
-
-        </div>
-
-
-        {!searchquery && <button onClick={handleLoadMore}>Load More</button>}
+        {!searchquery && (
+          <button className="generalButtonstyle" onClick={handleLoadMore}>
+            Load More
+          </button>
+        )}
         {modalOpen === 1 && (
           <Modalpop
             openstatus={modalOpen}

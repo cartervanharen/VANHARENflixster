@@ -1,10 +1,16 @@
 .sidebar {
     width: 250px;
     position: fixed;
-    right: 0;
-    top: 0;
-    height: 100vh;
+    right: 10px;
+    top: 10%;
+    height: 80%;
     background-color: #f4f4f4;
+    border-radius: 40px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: black;
+    color: black;
+
     padding: 20px;
     box-shadow: -2px 0 5px rgba(0,0,0,0.1);
   }

@@ -1,17 +1,11 @@
-#movieboxcontainer{
+#movieboxcontainer {
+  min-width: 800px;
 
-
-    min-width: 800px;
-
-    padding: 10px;
-    z-index: 1;
+  justify-content: center;
+  margin-right: 300px;
 }
 
-
-.fullpageflex{
-
-    display: flex;
-    margin: 40px;
-    padding: 10px;
-    z-index: 1;
+.fullpageflex {
+  display: flex;
+  padding: 10px;
 }

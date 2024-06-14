@@ -1,35 +1,57 @@
 .MovieCardBox {
-  border-radius:30px;
+  border-radius: 30px;
   border-width: 2px;
   border-style: solid;
   border-color: black;
   color: black;
   background-color: white;
   width: 200px;
-  height: 360px;
+  height: 430px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin: 15px;
+  padding: 10px;
+  box-sizing: border-box;
 }
 
 .moviecardimage {
   width: 160px;
   border-radius: 13px;
   height: 200px;
+  margin-bottom: 10px;
 }
 
 .moviecardtitle {
   padding: 4px;
-  justify-content: center;
+  text-align: center;
   font-size: 15pt;
   overflow: auto;
   white-space: normal;
+  margin-bottom: 10px;
 }
 
 #movieboxcontainer {
   min-width: 800px;
-
-  justify-content: center;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
+.generalButtonstyle {
+  justify-content: center;
+  border-radius: 10px;
+  width: 120px;
+  text-align: center;
+  text-wrap: wrap;
+  font-size: 10pt;
+  margin: 5px;
+}
 
+.flexbox {
+  padding: 4px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: auto;
+}

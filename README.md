@@ -1,10 +1,8 @@
-📝 `NOTE` Use this template to initialize the contents of a README.md file for your application. As you work on your assignment over the course of the week, update the required or stretch features lists to indicate which features you have completed by changing `[ ]` to `[x]`. (🚫 Remove this paragraph before submitting your assignment.)
-
 ## Unit Assignment: Flixster
 
-Submitted by: **NAME**
+Submitted by: **CARTER VANHAREN**
 
-Estimated time spent: **#** hours spent in total
+Estimated time spent: **25** hours spent in total
 
 Deployed Application (optional): [Flixster Deployed Site](ADD_LINK_HERE)
 
@@ -20,30 +18,30 @@ Deployed Application (optional): [Flixster Deployed Site](ADD_LINK_HERE)
 - [X] **Search Functionality**
   - [X] Users can search for movies and view the results in a grid.
   - [X] Users can clear results and view previous current movies displayed.
-- [ ] **Accessibility Features**
-  - [ ] Website implements accessibility features (semantic HTML, color contrast, font sizing, alt text for images).
+- [X] **Accessibility Features**
+  - [X] Website implements accessibility features (semantic HTML, color contrast, font sizing, alt text for images).
 - [X] **Responsive Design**
   - [X] Website implements responsive web design.
 - [X] **Movie Details**
   - [X] Users can view more details about a movie in a popup, such as runtime in minutes, backdrop poster, release date, genres, and/or an overview.
 - [X] **Sorting Options**
   - [X] Users can click on a filter by drop down to sort product by type (alphabetic, release date, rating).
-- [ ] **Layout**
-  - [ ] Website displays header, banner, search, movie grid, about, contact, and footer section.
+- [X] **Layout**
+  - [X] Website displays header, banner, search, movie grid, about, contact, and footer section.
 
 #### STRETCH FEATURES
 
 - [X] **Deployment**
   - [X] Website is deployed via Render.
-- [ ] **Embedded Movie Trailers**
-  - [ ] Within the popup displaying a movie's details, users can play the movie trailer.
-- [ ] **Watched Checkbox**
-  - [ ] For each movie displayed, users can mark the movie as watched.
-- [ ] **Favorite Button**
-  - [ ] For each movie displayed, users can favorite the movie.
-- [ ] **Sidebar**
-  - [ ] Users can open a sidebar
-  - [ ] The sidebar displays the user's favorited and watched movies
+- [X] **Embedded Movie Trailers**
+  - [X] Within the popup displaying a movie's details, users can play the movie trailer.
+- [X] **Watched Checkbox**
+  - [X] For each movie displayed, users can mark the movie as watched.
+- [X] **Favorite Button**
+  - [X] For each movie displayed, users can favorite the movie.
+- [X] **Sidebar**
+  - [X] Users can open a sidebar
+  - [X] The sidebar displays the user's favorited and watched movies
 
 ### Walkthrough Video
 

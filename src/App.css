@@ -147,3 +147,17 @@ h1 {
   margin: 5px;
   margin-left: 10px;
 }
+
+
+
+.generalButtonstyle {
+  border-radius: 10px;
+
+  padding-left: 20px;
+  margin-left: 20px;
+  margin: 5px;
+
+  margin-right: 20px;
+
+  padding-right: 20px;
+}
